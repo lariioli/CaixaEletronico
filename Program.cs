@@ -50,3 +50,8 @@ class Program
                 double valorSaque = double.Parse(Console.ReadLine());
                 conta.Sacar(valorSaque);
                 break;
+                case 2:
+                Console.Write("Valor do depósito: ");
+                double valorDeposito = double.Parse(Console.ReadLine());
+                conta.Depositar(valorDeposito);
+                break;
