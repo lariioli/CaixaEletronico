@@ -37,3 +37,6 @@ class Program
             Console.WriteLine("1. Saque");
             Console.WriteLine("2. Depósito");
             Console.WriteLine("3. Extrato");
+            Console.WriteLine("4. Transferência");
+            Console.WriteLine("5. Sair");
+            Console.Write("Escolha uma opção: ");
