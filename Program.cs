@@ -2,9 +2,9 @@
 using System.IO;
 
 class Program
-{
-  static void Main(string[] args)
- {
+{ 
+    static void Main(string[] args)
+    {
     Console.Write("Digite o nome do titular da conta: ");
     string titular = Console.ReadLine();
 
