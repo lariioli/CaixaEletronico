@@ -34,4 +34,6 @@ class Program
         {
             Console.Clear();
             Console.WriteLine("Bem-vindo ao Caixa Eletrônico!");
-            
+            Console.WriteLine("1. Saque");
+            Console.WriteLine("2. Depósito");
+            Console.WriteLine("3. Extrato");
