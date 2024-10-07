@@ -83,3 +83,7 @@ class Program
         }
     }
 }
+class Conta
+{
+    private string titular;
+    private string tipoConta;
