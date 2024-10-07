@@ -60,10 +60,18 @@ class Program
                 conta.SalvarExtratoEmArquivo();
                 break;
                 case 4:
-                 Console.Write("Digite o nome do destinatário: ");
+                Console.Write("Digite o nome do destinatário: ");
                 string destinatario = Console.ReadLine();
                 Console.Write("Digite o valor da transferência: ");
                 double valorTransferencia = double.Parse(Console.ReadLine());
                 Conta contaDestino = new Conta(destinatario, "Corrente", "0000", "0002");
                 conta.Transferir(contaDestino, valorTransferencia);
                 break;
+                case 5:
+                continuar = false;
+                Console.WriteLine("Saindo...");
+                break;
+                default:
+                Console.WriteLine("Opção inválida.");
+                break;
+            }
