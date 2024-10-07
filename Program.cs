@@ -75,3 +75,5 @@ class Program
                 Console.WriteLine("Opção inválida.");
                 break;
             }
+             if (continuar)
+            {
