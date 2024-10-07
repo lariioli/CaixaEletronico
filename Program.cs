@@ -16,3 +16,5 @@ class Program
 
         Console.Write("Digite o número da conta: ");
         string numeroConta = Console.ReadLine();
+        
+        Conta conta = new Conta(titular, tipoConta, senha, numeroConta);
