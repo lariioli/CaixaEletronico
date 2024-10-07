@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+
 class Program
 {
   static void Main(string[] args)
@@ -10,4 +11,5 @@ class Program
     Console.Write("Digite o tipo de conta (Corrente/Poupança): ");
     string tipoConta = Console.ReadLine();
 
-    
+    Console.Write("Crie uma senha para sua conta: ");
+    string senha = 
