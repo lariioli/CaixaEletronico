@@ -18,6 +18,16 @@ class Program
         string numeroConta = Console.ReadLine();
 
         Conta conta = new Conta(titular, tipoConta, senha, numeroConta);
-        
+
         Console.Write("Digite a senha para acessar a conta: ");
         string senhaInput = Console.ReadLine();
+        
+         if (!conta.Autenticar(senhaInput))
+        {
+            Console.WriteLine("Senha incorreta. Acesso negado.");
+            return;
+        }
+
+        bool continuar = true;
+
+        while (continuar)
