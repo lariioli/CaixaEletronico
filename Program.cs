@@ -40,7 +40,13 @@ class Program
             Console.WriteLine("4. Transferência");
             Console.WriteLine("5. Sair");
             Console.Write("Escolha uma opção: ");
-            
+
             int opcao = int.Parse(Console.ReadLine());
 
             switch (opcao)
+            {
+                case 1:
+                Console.Write("Valor do saque: ");
+                double valorSaque = double.Parse(Console.ReadLine());
+                conta.Sacar(valorSaque);
+                break;
