@@ -40,3 +40,7 @@ class Program
             Console.WriteLine("4. Transferência");
             Console.WriteLine("5. Sair");
             Console.Write("Escolha uma opção: ");
+            
+            int opcao = int.Parse(Console.ReadLine());
+
+            switch (opcao)
