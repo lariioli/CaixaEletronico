@@ -77,3 +77,9 @@ class Program
             }
              if (continuar)
             {
+                Console.WriteLine("Pressione qualquer tecla para continuar...");
+                Console.ReadKey();
+            }
+        }
+    }
+}
