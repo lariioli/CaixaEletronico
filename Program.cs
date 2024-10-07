@@ -55,3 +55,15 @@ class Program
                 double valorDeposito = double.Parse(Console.ReadLine());
                 conta.Depositar(valorDeposito);
                 break;
+                case 3:
+                conta.ExibirExtrato();
+                conta.SalvarExtratoEmArquivo();
+                break;
+                case 4:
+                 Console.Write("Digite o nome do destinatário: ");
+                string destinatario = Console.ReadLine();
+                Console.Write("Digite o valor da transferência: ");
+                double valorTransferencia = double.Parse(Console.ReadLine());
+                Conta contaDestino = new Conta(destinatario, "Corrente", "0000", "0002");
+                conta.Transferir(contaDestino, valorTransferencia);
+                break;
