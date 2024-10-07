@@ -21,7 +21,7 @@ class Program
 
         Console.Write("Digite a senha para acessar a conta: ");
         string senhaInput = Console.ReadLine();
-        
+
          if (!conta.Autenticar(senhaInput))
         {
             Console.WriteLine("Senha incorreta. Acesso negado.");
@@ -31,3 +31,7 @@ class Program
         bool continuar = true;
 
         while (continuar)
+        {
+            Console.Clear();
+            Console.WriteLine("Bem-vindo ao Caixa Eletrônico!");
+            
