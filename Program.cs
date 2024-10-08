@@ -141,3 +141,20 @@ class Conta
         Console.WriteLine($"Número da Conta: {numeroConta}");
         Console.WriteLine($"Saldo Atual: {saldo:C}");
     }
+    public void Transferir(Conta destino, double valor)
+    {
+        if (valor > saldo)
+        {
+            Console.WriteLine("Saldo insuficiente para transferência.");
+        }
+        else if (valor <= 0)
+        {
+            Console.WriteLine("Valor inválido.");
+        }
+        else
+        {
+            saldo -= valor;
+            destino.Depositar(valor);
+            Console.WriteLine($"Transferência de {valor:C} para {destino.titular} realizada com sucesso.");
+        }
+    }
