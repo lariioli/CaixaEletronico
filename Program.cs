@@ -87,3 +87,10 @@ class Conta
 {
     private string titular;
     private string tipoConta;
+    private double saldo;
+    private string senha;
+    private string numeroConta;
+
+    public Conta(string titular, string tipoConta, string senha, string numeroConta)
+    {
+        
