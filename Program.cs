@@ -128,4 +128,16 @@ class Conta
             Console.WriteLine("Valor inválido.");
         }
         else
-        
+         {
+            saldo += valor;
+            Console.WriteLine($"Depósito de {valor:C} realizado com sucesso.");
+        }
+    }
+
+    public void ExibirExtrato()
+    {
+        Console.WriteLine($"Titular: {titular}");
+        Console.WriteLine($"Tipo de Conta: {tipoConta}");
+        Console.WriteLine($"Número da Conta: {numeroConta}");
+        Console.WriteLine($"Saldo Atual: {saldo:C}");
+    }
