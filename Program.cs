@@ -93,4 +93,9 @@ class Conta
 
     public Conta(string titular, string tipoConta, string senha, string numeroConta)
     {
-        
+    this.titular = titular;
+    this.tipoConta = tipoConta;
+    this.saldo = 0;
+    this.senha = senha;
+    this.numeroConta = numeroConta;
+    }
