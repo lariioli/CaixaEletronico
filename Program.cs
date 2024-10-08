@@ -158,3 +158,14 @@ class Conta
             Console.WriteLine($"Transferência de {valor:C} para {destino.titular} realizada com sucesso.");
         }
     }
+       public void SalvarExtratoEmArquivo()
+    {
+        string nomeArquivo = $"{titular}_extrato.txt";
+        using (StreamWriter writer = new StreamWriter(nomeArquivo))
+        {
+            writer.WriteLine($"Titular: {titular}");
+            writer.WriteLine($"Tipo de Conta: {tipoConta}");
+            writer.WriteLine($"Número da Conta: {numeroConta}");
+            writer.WriteLine($"Saldo Atual: {saldo:C}");
+            writer.WriteLine($"Data: {DateTime.Now:dd/MM/yyyy}");
+            writer.WriteLine($"Hora: {DateTime.Now:HH:mm:ss}");
