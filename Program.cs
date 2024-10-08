@@ -169,3 +169,7 @@ class Conta
             writer.WriteLine($"Saldo Atual: {saldo:C}");
             writer.WriteLine($"Data: {DateTime.Now:dd/MM/yyyy}");
             writer.WriteLine($"Hora: {DateTime.Now:HH:mm:ss}");
+             }
+        Console.WriteLine($"Extrato salvo em: {nomeArquivo}");
+    }
+}
