@@ -99,3 +99,33 @@ class Conta
     this.senha = senha;
     this.numeroConta = numeroConta;
     }
+     public bool Autenticar(string senhaInput)
+    {
+        return senhaInput == senha;
+    }
+
+    public void Sacar(double valor)
+    {
+        if (valor > saldo)
+        {
+            Console.WriteLine("Saldo insuficiente.");
+        }
+        else if (valor <= 0)
+        {
+            Console.WriteLine("Valor inválido.");
+        }
+        else
+        {
+            saldo -= valor;
+            Console.WriteLine($"Saque de {valor:C} realizado com sucesso.");
+        }
+    }
+
+    public void Depositar(double valor)
+    {
+        if (valor <= 0)
+        {
+            Console.WriteLine("Valor inválido.");
+        }
+        else
+        
