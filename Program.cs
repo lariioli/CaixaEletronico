@@ -67,10 +67,19 @@ class Program
                 string destinatario = Console.ReadLine();
                 Console.Write("Digite o valor da transferência: ");
                 double valorTransferencia = double.Parse(Console.ReadLine());
-                Conta contaDestino = new Conta(destinatario, "Corrente", "0000", "0002");
+                Conta contaDestino = new Conta(destinatario, "Corrente", "0000", "0002", 0);
                 conta.Transferir(contaDestino, valorTransferencia);
                 break;
                 case 5:
+                Console.WriteLine("Aplicações financeiras:");
+                Console.WriteLine("1. Poupança");
+                Console.WriteLine("2. CDB");
+                int tipoAplicacao = int.Parse(Console.ReadLine());
+                Console.Write("Digite o valor da aplicação: ");
+                double valorAplicacao = double.Parse(Console.ReadLine());
+                conta.AplicacaoFinanceira(tipoAplicacao, valorAplicacao);
+                break;
+                case 6:
                 continuar = false;
                 Console.WriteLine("Saindo...");
                 break;
@@ -91,16 +100,18 @@ class Conta
     private string titular;
     private string tipoConta;
     private double saldo;
+    private double limite;
     private string senha;
     private string numeroConta;
 
-    public Conta(string titular, string tipoConta, string senha, string numeroConta)
+    public Conta(string titular, string tipoConta, string senha, string numeroConta, double limite)
     {
     this.titular = titular;
     this.tipoConta = tipoConta;
     this.saldo = 0;
     this.senha = senha;
     this.numeroConta = numeroConta;
+    this.limite = limite;
     }
      public bool Autenticar(string senhaInput)
     {
@@ -109,9 +120,9 @@ class Conta
 
     public void Sacar(double valor)
     {
-        if (valor > saldo)
+        if (valor > saldo + limite)
         {
-            Console.WriteLine("Saldo insuficiente.");
+            Console.WriteLine("Saldo insuficiente e limite excedido.");
         }
         else if (valor <= 0)
         {
@@ -143,25 +154,35 @@ class Conta
         Console.WriteLine($"Tipo de Conta: {tipoConta}");
         Console.WriteLine($"Número da Conta: {numeroConta}");
         Console.WriteLine($"Saldo Atual: {saldo:C}");
+        Console.WriteLine($"Limite: {limite:C}");
     }
-    public void Transferir(Conta destino, double valor)
+     public void AplicacaoFinanceira(int tipo, double valor)
     {
         if (valor > saldo)
         {
-            Console.WriteLine("Saldo insuficiente para transferência.");
+            Console.WriteLine("Saldo insuficiente para aplicação.");
         }
-        else if (valor <= 0)
+        else if (tipo == 1)
         {
-            Console.WriteLine("Valor inválido.");
+            saldo -= valor;
+            double rendimento = valor * 0.005; 
+            saldo += rendimento;
+            Console.WriteLine($"Aplicação de {valor:C} na Poupança realizada. Rendimento: {rendimento:C}");
+        }
+        else if (tipo == 2)
+        {
+            saldo -= valor;
+            double rendimento = valor * 0.01; 
+            saldo += rendimento;
+            Console.WriteLine($"Aplicação de {valor:C} no CDB realizada. Rendimento: {rendimento:C}");
         }
         else
         {
-            saldo -= valor;
-            destino.Depositar(valor);
-            Console.WriteLine($"Transferência de {valor:C} para {destino.titular} realizada com sucesso.");
+            Console.WriteLine("Tipo de aplicação inválida.");
         }
     }
-       public void SalvarExtratoEmArquivo()
+
+    public void SalvarExtratoEmArquivo()
     {
         string nomeArquivo = $"{titular}_extrato.txt";
         using (StreamWriter writer = new StreamWriter(nomeArquivo))
@@ -170,9 +191,10 @@ class Conta
             writer.WriteLine($"Tipo de Conta: {tipoConta}");
             writer.WriteLine($"Número da Conta: {numeroConta}");
             writer.WriteLine($"Saldo Atual: {saldo:C}");
+            writer.WriteLine($"Limite: {limite:C}");
             writer.WriteLine($"Data: {DateTime.Now:dd/MM/yyyy}");
             writer.WriteLine($"Hora: {DateTime.Now:HH:mm:ss}");
-             }
+        }
         Console.WriteLine($"Extrato salvo em: {nomeArquivo}");
     }
 }
