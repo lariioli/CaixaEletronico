@@ -17,7 +17,7 @@ class Program
         Console.Write("Digite o número da conta: ");
         string numeroConta = Console.ReadLine();
 
-        Conta conta = new Conta(titular, tipoConta, senha, numeroConta);
+        Conta conta = new Conta(titular, tipoConta, senha, numeroConta, limite);
 
         Console.Write("Digite a senha para acessar a conta: ");
         string senhaInput = Console.ReadLine();
@@ -38,9 +38,12 @@ class Program
             Console.WriteLine("2. Depósito");
             Console.WriteLine("3. Extrato");
             Console.WriteLine("4. Transferência");
-            Console.WriteLine("5. Sair");
+            Console.WriteLine("5. Aplicações Financeiras");
+            Console.WriteLine("6. Sair");
             Console.Write("Escolha uma opção: ");
+            int opcao = int.Parse(Console.ReadLine());
 
+            switch (opcao)
             int opcao = int.Parse(Console.ReadLine());
 
             switch (opcao)
